@@ -1,0 +1,24 @@
+create table if not exists departments (departmentId varchar(20) primary key, department varchar(20) unique);
+insert into departments values('D01','総務部');
+insert into departments values('D02','営業部');
+insert into departments values('D03','開発部');
+create table if not exists photos (photoId serial primary key, photoData bytea, mime varchar(20));
+insert into photos (photoData , mime) values(null , null);
+insert into photos (photoData , mime) values(null , null);
+insert into photos (photoData , mime) values(null , null);
+create table if not exists employees(
+employeeId varchar(20)  primary key,
+name varchar(20) ,
+age integer ,
+gender integer ,
+photoId integer ,
+zipNumber varchar(20) ,
+pref varchar(20) ,
+address varchar(100) ,
+departmentId varchar(20) ,
+hireDate Date ,
+retirementDate Date
+);
+insert into employees ( employeeId,name,age,gender,photoId,zipNumber,pref,address,departmentId,hireDate,retirementDate) values ('EMP0001','山田 太郎',35,1,1,'100-1000','東京都','千代田区','D01','2000-11-11',null);
+insert into employees ( employeeId,name,age,gender,photoId,zipNumber,pref,address,departmentId,hireDate,retirementDate) values ('EMP0002','日本 花子',30,2,2,'200-2000','埼玉県','さいたま市','D02','1999-10-10',null);
+insert into employees ( employeeId,name,age,gender,photoId,zipNumber,pref,address,departmentId,hireDate,retirementDate) values ('EMP0003','東京 次郎',40,1,3,'300-3000','神奈川県','川崎市','D03','1998-12-12','2003-03-03');
